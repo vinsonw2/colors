@@ -5,7 +5,7 @@ import SavedColor from './saved-color';
 
 type SavedColorsProps = {
   hexColor: string;
-  dispatch: React.Dispatch<AdjustColorActions>;
+  dispatch?: React.Dispatch<AdjustColorActions>;
 };
 
 const saved = [
@@ -27,9 +27,6 @@ const SavedColors = ({ hexColor, dispatch }: SavedColorsProps) => {
       {savedColors.map(({ id, name, hexColor }) => {
         return (
           <SavedColor
-            onClick={() =>
-              dispatch({ type: 'update-hex-color', payload: { hexColor } })
-            }
             key={id}
             name={name}
             hexColor={hexColor}

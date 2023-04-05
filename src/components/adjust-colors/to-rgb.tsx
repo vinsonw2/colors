@@ -1,15 +1,17 @@
 import { hex } from 'color-convert';
-import { Dispatch } from 'react';
+import { Dispatch, useContext } from 'react';
+import { ColorContext } from '../../context';
 import LabeledInput from '../shared/labeled-input';
 
 type HexToRGBProps = {
   hexColor: string;
-  dispatch: Dispatch<AdjustColorActions>;
+  dispatch?: Dispatch<AdjustColorActions>;
 };
 
-const HexToRGB = ({ hexColor, dispatch }: HexToRGBProps) => {
+const HexToRGB = ({ hexColor }: HexToRGBProps) => {
   const color = hex.rgb(hexColor);
   const [r, g, b] = color;
+  const { dispatch } = useContext(ColorContext);
 
   const updateRGBColor = (r: number, g: number, b: number) => {
     dispatch({

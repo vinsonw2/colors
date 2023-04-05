@@ -18,10 +18,6 @@ const RelatedColorPalette = ({
         {hexColors.map((hexColor) => {
           return (
             <ColorChangeSwatch
-              onClick={() =>
-                dispatch &&
-                dispatch({ type: 'update-hex-color', payload: { hexColor } })
-              }
               key={hexColor}
               hexColor={hexColor}
               className="h-full w-full"

@@ -1,4 +1,4 @@
-type UpdateColorAction = {
+type UpdateHexColorAction = {
   type: 'update-hex-color';
   payload: {
     hexColor: string;
@@ -15,6 +15,6 @@ type UpdateCMYKColorAction = {
   payload: { cmyk: [number, number, number, number] };
 };
 type AdjustColorActions =
-  | UpdateColorAction
+  | UpdateHexColorAction
   | UpdateRGBColorAction
   | UpdateCMYKColorAction;

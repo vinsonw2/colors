@@ -7,17 +7,17 @@ import HexToRGB from './to-rgb';
 
 type AdjustColorsProps = {
   hexColor: string;
-  dispatch: Dispatch<AdjustColorActions>;
+  dispatch?: Dispatch<AdjustColorActions>;
 };
 
 const AdjustColors = ({ hexColor, dispatch }: AdjustColorsProps) => {
   return (
     <div className="flex w-full flex-col gap-4">
       <h3>Adjust Colors</h3>
-      <HexToRGB dispatch={dispatch} hexColor={hexColor} />
+      <HexToRGB hexColor={hexColor} />
       <HexToHSL hexColor={hexColor} />
       <HexToHSV hexColor={hexColor} />
-      <HexToCMYK dispatch={dispatch} hexColor={hexColor} />
+      <HexToCMYK hexColor={hexColor} />
       <ColorName hexColor={hexColor} />
     </div>
   );
