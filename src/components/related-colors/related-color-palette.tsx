@@ -3,11 +3,13 @@ import ColorChangeSwatch from '../shared/color-change-swatch';
 type RelatedColorPaletteProps = {
   title: string;
   hexColors: string[];
+  dispatch?: React.Dispatch<AdjustColorActions>;
 };
 
 const RelatedColorPalette = ({
   title,
   hexColors,
+  dispatch,
 }: RelatedColorPaletteProps) => {
   return (
     <section>
@@ -16,9 +18,13 @@ const RelatedColorPalette = ({
         {hexColors.map((hexColor) => {
           return (
             <ColorChangeSwatch
+              onClick={() =>
+                dispatch &&
+                dispatch({ type: 'update-hex-color', payload: { hexColor } })
+              }
               key={hexColor}
               hexColor={hexColor}
-              className="w-full h-full"
+              className="h-full w-full"
             />
           );
         })}

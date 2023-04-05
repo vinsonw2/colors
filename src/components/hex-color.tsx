@@ -3,7 +3,11 @@ type HexColorProps = {
 };
 
 const HexColor = ({ hexColor }: HexColorProps) => {
-  return <section className="font-semibold information">{hexColor}</section>;
+  return (
+    <section className="information font-semibold" style={{ color: 'red' }}>
+      {hexColor.toUpperCase()}
+    </section>
+  );
 };
 
 export default HexColor;

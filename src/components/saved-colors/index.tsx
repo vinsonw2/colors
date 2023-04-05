@@ -5,6 +5,7 @@ import SavedColor from './saved-color';
 
 type SavedColorsProps = {
   hexColor: string;
+  dispatch: React.Dispatch<AdjustColorActions>;
 };
 
 const saved = [
@@ -12,11 +13,11 @@ const saved = [
   { id: id(), name: 'Blue Fire', hexColor: '#00aadd' },
 ];
 
-const SavedColors = ({ hexColor }: SavedColorsProps) => {
+const SavedColors = ({ hexColor, dispatch }: SavedColorsProps) => {
   const [savedColors, setSavedColors] = useState(saved);
 
   return (
-    <section className="flex flex-col w-full gap-4 sm:col-span-2">
+    <section className="flex w-full flex-col gap-4 sm:col-span-2">
       <h3>Save Color</h3>
       <AddSavedColor
         onSave={(name) =>
@@ -26,6 +27,9 @@ const SavedColors = ({ hexColor }: SavedColorsProps) => {
       {savedColors.map(({ id, name, hexColor }) => {
         return (
           <SavedColor
+            onClick={() =>
+              dispatch({ type: 'update-hex-color', payload: { hexColor } })
+            }
             key={id}
             name={name}
             hexColor={hexColor}
