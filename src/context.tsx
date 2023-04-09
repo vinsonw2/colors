@@ -17,3 +17,7 @@ export const ColorProvider = ({ children }: PropsWithChildren) => {
     </ColorContext.Provider>
   );
 };
+
+/**
+ * TypeScript in React is fun!
+ */
